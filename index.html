@@ -6,8 +6,8 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #4a77a9, #3f639f);
-      color: #fff;
+      background: #f4f4f4;
+      color: #333;
       margin: 0;
       padding: 20px;
       display: flex;
@@ -30,17 +30,16 @@
     li {
       padding: 10px;
       margin: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
+      background: #fff;
+      border-radius: 8px;
       display: flex;
       align-items: center;
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⛄️</text></svg>")
-      16 0, auto;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: background 0.3s ease-in-out;
     }
 
     li:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: #f0f0f0; /* Lighter background on hover */
     }
 
     input[type="checkbox"] {
@@ -51,7 +50,7 @@
 
     label {
       font-size: 16px;
-      cursor:pointer;
+      cursor: pointer;
     }
 
     input[type="checkbox"] + label {
@@ -66,9 +65,9 @@
       top: 0;
       width: 20px;
       height: 20px;
-      border: 2px solid #fff;
-      border-radius: 5px;
-      background: rgba(255, 255, 255, 0.3);
+      border: 2px solid #007BFF; /* Modern blue color */
+      border-radius: 4px;
+      background: #fff;
       transition: background 0.3s ease-in-out;
     }
 
