@@ -4,7 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Your CSS styles here */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #4a77a9, #3f639f);
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2, h3 {
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      margin: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    li:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      opacity: 0;
+      position: absolute;
+    }
+
+    label {
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] + label {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    input[type="checkbox"] + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.3);
+      transition: background 0.3s ease-in-out;
+    }
+
+    input[type="checkbox"]:checked + label:before {
+      background: #f7f7f7; /* Green color for checked state */
+      border-color: #baa7ff;
+    }
+
+    input[type="checkbox"]:checked + label:after {
+      content: '\2713'; /* Unicode checkmark character */
+      font-size: 16px;
+      color: #000000;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (max-width: 600px) {
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
   <title>Checklist</title>
 </head>
@@ -19,55 +103,55 @@
   </ul>
 
   <script>
-    // Function to read checklist items from the JSON file and populate the list
-    function populateChecklist(jsonFile, listId) {
-      fetch(jsonFile)
-        .then(response => response.json())
-        .then(data => {
-          const checklist = document.getElementById(listId);
-          const items = data[listId];
+    // List of main items
+    const mainList = [
+        "Komplet odzieży sportowej do treningu na zewnątrz (W tym do spacerów „na krótko”)",
+        "Komplet odzieży sportowej do treningu wewnątrz",
+        "Ciepłe ubrania + Kurtka Zimowa",
+        "Mata do ćwiczeń",
+        "Mała poduszka",
+        "Śpiwór lub kocyk",
+        "Dwa ręczniki",
+        "Strój kąpielowy",
+        "Wygodne obuwie zimowe do spacerów",
+        "Mały sportowy plecak",
+        "Czapka x2",
+        "Rękawiczki x 2",
+        "Zeszyt lub kartki do notowania oraz długopis",
+        "Raczki (nakładki na buty do chodzenia po śniegu)"
+    ];
 
-          items.forEach((item, index) => {
-            const itemId = `item${index + 1}`;
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `
-              <input type="checkbox" id="${itemId}">
-              <label for="${itemId}">${item}</label>
-            `;
-            checklist.appendChild(listItem);
-          });
-        });
+    // List of optional items
+    const optionalList = [
+    "Buty do pływania",
+    "Latarka czołowa",
+    "Termos",
+    "Grube skarpety wełniane",
+    "Kijki"
+    ];
+
+    let itemIndex = 1
+
+    // Function to populate the checklist
+    function populateChecklist(items, listId) {
+      const checklist = document.getElementById(listId);
+
+      items.forEach((item, index) => {
+        const itemId = `item${itemIndex++}`;
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <input type="checkbox" id="${itemId}">
+          <label for="${itemId}">${item}</label>
+        `;
+        checklist.appendChild(listItem);
+      });
     }
 
-    const listaRzeczy = {
-    "mainList": [
-      "Komplet odzieży sportowej do treningu na zewnątrz (W tym do spacerów \"na krótko\")",
-      "Komplet odzieży sportowej do treningu wewnątrz",
-      "Ciepłe wygodne ubrania (bluzy, dresy itp.)",
-      "Mata do ćwiczeń",
-      "Mała poduszka",
-      "Śpiwór lub kocyk",
-      "Dwa ręczniki",
-      "Strój kąpielowy",
-      "Wygodne obuwie zimowe do spacerów",
-      "Mały sportowy plecak",
-      "Czapka x2",
-      "Rękawiczki x 2",
-      "Zeszyt lub kartki do notowania oraz długopis",
-      "Latarka czołowa lub mała podręczna"
-    ],
-    "optionalList": [
-      "Skarpety do pływania",
-      "Termos",
-      "Grube skarpety wełniane"
-    ]
-  }
-  
     // Populate the main checklist
-    populateChecklist(listaRzeczy, 'mainList');
+    populateChecklist(mainList, 'checklist');
 
     // Populate the optional checklist
-    // populateChecklist('checklist-items.json', 'optionalList');
+    populateChecklist(optionalList, 'optionalList');
   </script>
 </body>
 </html>
