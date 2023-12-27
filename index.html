@@ -15,7 +15,14 @@
       align-items: center;
       cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⛄️</text></svg>")
       16 0, auto;
+    }
 
+    .lists-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px; /* Adjust the max-width as needed */
+      margin-top: 20px;
     }
 
     h2, h3 {
@@ -96,14 +103,15 @@
   <title>Checklist</title>
 </head>
 <body>
-  <h2>Lista rzeczy do spakowania:</h2>
-  <ul id="checklist">
-    <!-- JavaScript code will populate this list -->
-  </ul>
-  <h3>Opcjonalnie:</h3>
-  <ul id="optionalList">
-    <!-- JavaScript code will populate this list -->
-  </ul>
+    
+  <div class="lists-container">
+    <ul id="checklist">
+      <!-- JavaScript code will populate this list -->
+    </ul>
+    <ul id="optionalList">
+      <!-- JavaScript code will populate this list -->
+    </ul>
+  </div>
 
   <script>
     // List of main items
