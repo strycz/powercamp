@@ -1,1 +1,82 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2, h3 {
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    @media (max-width: 600px) {
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+  <title>Checklist</title>
+</head>
+<body>
+  <h2>Lista rzeczy do spakowania:</h2>
+  <ul id="checklist">
+    <li><input type="checkbox" id="item1"> <label for="item1">Komplet odzieży sportowej do treningu na zewnątrz (W tym do spacerów "na krótko")</label></li>
+    <li><input type="checkbox" id="item2"> <label for="item2">Komplet odzieży sportowej do treningu wewnątrz</label></li>
+    <li><input type="checkbox" id="item3"> <label for="item3">Ciepłe wygodne ubrania (bluzy, dresy itp.)</label></li>
+    <li><input type="checkbox" id="item4"> <label for="item4">Mata do ćwiczeń</label></li>
+    <li><input type="checkbox" id="item5"> <label for="item5">Mała poduszka</label></li>
+    <li><input type="checkbox" id="item6"> <label for="item6">Śpiwór lub kocyk</label></li>
+    <li><input type="checkbox" id="item7"> <label for="item7">Dwa ręczniki</label></li>
+    <li><input type="checkbox" id="item8"> <label for="item8">Strój kąpielowy</label></li>
+    <li><input type="checkbox" id="item9"> <label for="item9">Wygodne obuwie zimowe do spacerów</label></li>
+    <li><input type="checkbox" id="item10"> <label for="item10">Mały sportowy plecak</label></li>
+    <li><input type="checkbox" id="item11"> <label for="item11">Czapka x2</label></li>
+    <li><input type="checkbox" id="item12"> <label for="item12">Rękawiczki x 2</label></li>
+    <li><input type="checkbox" id="item13"> <label for="item13">Zeszyt lub kartki do notowania oraz długopis</label></li>
+    <li><input type="checkbox" id="item14"> <label for="item14">Latarka czołowa lub mała podręczna</label></li>
+  </ul>
+  <h3>Opcjonalnie:</h3>
+  <ul>
+    <li><input type="checkbox" id="optional1"> <label for="optional1">Skarpety do pływania</label></li>
+    <li><input type="checkbox" id="optional2"> <label for="optional2">Termos</label></li>
+    <li><input type="checkbox" id="optional3"> <label for="optional3">Grube skarpety wełniane</label></li>
+  </ul>
+</body>
+</html>
