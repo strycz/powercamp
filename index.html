@@ -114,14 +114,18 @@
 
   <div class="lists-container">
     <div>
-        <h2>Lista rzeczy do spakowania</h2>
-    <ul id="checklist">
+        <h2>Treningu na zewnątrz</h2>
+    <ul id="stuffOutside">
+      <!-- JavaScript code will populate this list -->
+    </ul>
+    <h2>Treningu wewnątrz</h2>
+    <ul id="stuffInside">
       <!-- JavaScript code will populate this list -->
     </ul>
 </div>
 <div>
     <h2>Inne</h2>
-    <ul id="optionalList">
+    <ul id="otherStuff">
       <!-- JavaScript code will populate this list -->
     </ul>
 </div>
@@ -129,7 +133,7 @@
 
   <script>
     // List of main items
-    const mainList = [
+    const stuffOutside = [
     "Spodenki krótkie",
     "Koszulka z długim rękawem",
     "Dres lub inne spodnie długie",
@@ -139,18 +143,19 @@
     "Bluza gruba",
     "Ciepłe skarpetki",
     "*Opcjonalnie odzież termoaktywna",
-    "Komplet odzieży sportowej do treningu wewnątrz",
+    ];
+
+    const stuffInside = [
     "Spodenki krótkie",
     "Koszulki sportowe x2",
     "Dresy",
     ];
 
     // List of optional items
-    const optionalList = [
+    const otherStuff = [
     "Bielizna",
     "Klapki",
     "Mała poduszka",
-    "Buty lub skarpetki do wody (antypoślizgowe) opcjonalnie*",
     "Kocyk",
     "Dwa ręczniki",
     "Strój kąpielowy",
@@ -160,12 +165,13 @@
     "Zeszyt lub kartki do notowania oraz długopis",
     "Termos",
     "Latarka czołowa",
-    "*Opcjonalnie Kijki do spacerów (Mogą być pomocne, ale jeśli ktoś nie lubi może iść bez)",
     "RACZKI (Jeśli mam iść na Śnieżkę BARDZO WAŻNE! Wystarczą takie gumowe nakładki z kolacami za około 60 zł. Coś w tym stylu)",
     "Okulary przeciwsłoneczne lub goggle narciarskie",
     "Komin lub husta na szyję",
-    "*Powerbank",
-    "Gwizdek"
+    "Gwizdek",
+    "*Opcjonalnie Powerbank",
+    "*Opcjonalnie Buty lub skarpetki do wody (antypoślizgowe)",
+    "*Opcjonalnie Kijki do spacerów (Mogą być pomocne, ale jeśli ktoś nie lubi może iść bez)",
     ];
 
     let itemIndex = 1
@@ -186,10 +192,12 @@
     }
 
     // Populate the main checklist
-    populateChecklist(mainList, 'checklist');
+    populateChecklist(stuffOutside, 'stuffOutside');
+    
+    populateChecklist(stuffInside, 'stuffInside');
 
     // Populate the optional checklist
-    populateChecklist(optionalList, 'optionalList');
+    populateChecklist(otherStuff, 'otherStuff');
   </script>
 </body>
 </html>
